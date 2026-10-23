@@ -7,44 +7,50 @@ use App\Http\Controllers\QuestionController;
 
 // Route untuk menampilkan halaman utama
 Route::get('/', function () {
-    return view('home');
+    return view('admin.dashboard');
 });
 
-// Route untuk mengirim Form Pertanyaan
-Route::post('question/store', [QuestionController::class, 'store'])
-    ->name('question.store');
-// Halaman Utama → home.blade.php
-Route::get('/', function () {
-    return view('home');
-});
+//dashboard redirect
+Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
-// Halaman Home
-Route::get('/', [HomeController::class, 'index']);
+//route pelanggan p6
+Route::resource('pelanggan', PelangganController::class);
 
-// Halaman PCR
-Route::get('/pcr', function () {
-    return 'Selamat datang di website Kampus PCR';
-});
+// // Route untuk mengirim Form Pertanyaan
+// Route::post('question/store', [QuestionController::class, 'store'])
+//     ->name('question.store');
+// // Halaman Utama → home.blade.php
+// Route::get('/', function () {
+//     return view('home');
+// });
 
-// Route Mahasiswa
-Route::get('/mahasiswa', function () {
-    return 'Halo Mahasiswa';
-})->name('mahasiswa.show');
+// // Halaman Home
+// Route::get('/', [HomeController::class, 'index']);
 
-// Route Nama
-Route::get('/nama/{param1}', function ($param1) {
-    return 'Nama saya: ' . $param1;
-});
+// // Halaman PCR
+// Route::get('/pcr', function () {
+//     return 'Selamat datang di website Kampus PCR';
+// });
 
-// Route Mahasiswa dengan parameter
-Route::get('/mahasiswa/{param1}', [MahasiswaController::class, 'show']);
+// // Route Mahasiswa
+// Route::get('/mahasiswa', function () {
+//     return 'Halo Mahasiswa';
+// })->name('mahasiswa.show');
 
-// Route NIM
-Route::get('/nim/{param1?}', function ($param1 = '') {
-    return 'NIM saya: ' . $param1;
-});
+// // Route Nama
+// Route::get('/nama/{param1}', function ($param1) {
+//     return 'Nama saya: ' . $param1;
+// });
 
-// Halaman About
-Route::get('/about', function () {
-    return view('halaman-about');
-});
+// // Route Mahasiswa dengan parameter
+// Route::get('/mahasiswa/{param1}', [MahasiswaController::class, 'show']);
+
+// // // Route NIM
+// // Route::get('/nim/{param1?}', function ($param1 = '') {
+// //     return 'NIM saya: ' . $param1;
+// // });
+
+// // Halaman About
+// // Route::get('/about', function () {
+// //     return view('halaman-about');
+// });

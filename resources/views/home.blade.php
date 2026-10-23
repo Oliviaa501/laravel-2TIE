@@ -148,7 +148,12 @@
                         <p class="text-muted small mt-3 mb-0">
                             Gunakan <code>.card</code> untuk konten yang butuh border & sedikit efek shadow.
                         </p>
-                        <div class="card">
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card">
                             <div class="card-body">
                                 <h5 class="card-title">Form Pertanyaan</h5>
                                 <form action="{{ route('question.store') }}" method="POST">
@@ -169,11 +174,6 @@
                                 </form>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-6">
                 {{-- Alerts --}}
                 <div class="card ">
                     <div class="card-body">
